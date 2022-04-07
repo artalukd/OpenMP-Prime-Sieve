@@ -1,4 +1,4 @@
-gcc -g -Wall -fopenmp -o genprime genprimes.c  -lm
+gcc -g -Wall -fopenmp -std=c99  -o genprime genprimes.c  -lm
 
 echo 1; ./genprime 1000 1
 echo 2; ./genprime 1000 2
