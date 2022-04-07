@@ -36,9 +36,12 @@ int main(int argc, char * argv[]) {
 
     long x = (int)floor(sqrt(N+1));
 
+
+    // I first find out all the prime numbers between 1 to Sqrt N. Once we have these primes we 
+    // We use these primes to mark in the rest of the primes array.
     lowerBase(primes, x);
 
-
+    //Commented out code to print the primes bellow sqrt N
     // for(long long i =2; i <=min(N,3); i++){
     //     printf("%d, %lld \n",count++, i);
     // }
@@ -52,6 +55,8 @@ int main(int argc, char * argv[]) {
 
     long long block_size = (int)ceil((upper - lower*1.0)/number_of_threads);
     // printf("block size %lld %lld %lld\n", block_size,lower, upper);
+
+    //We allocate each thread 
     #pragma omp parallel for num_threads(number_of_threads)
     for(long long int i = lower; i < upper; i+=block_size){
 
